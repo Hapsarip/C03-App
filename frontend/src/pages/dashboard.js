@@ -1,23 +1,9 @@
 import React from 'react'
-import Logo from '../assets/icon-oil.svg'
 
-export default function Dashboard (){
+export default function ResultEach (){
     return (
         <div className="flex justify-center items-center w-full h-screen">
-            <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                <div class="px-3 py-3 lg:px-5 lg:pl-3">
-                    <div class="flex items-center justify-between">
-                    <div class="flex items-center justify-start">
-                        <img src={Logo} class="h-8 mx-3" alt="FlowBite Logo" />
-                        <h3 className='self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white'>
-                        Oil Spill Detection
-                        </h3>
-                    </div>
-                    </div>
-                </div>
-                </nav>
-
-                <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-80 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+            <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-80 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
                 <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
                     <ul class="space-y-2 font-medium">
                         <li>

@@ -1,9 +1,10 @@
 import React from 'react'
 import Navbar from '../component/navbar'
 import imageCard from '../component/imageCard'
-import Image from '../assets/oil-spill-landing.png'
-import Example1 from '../assets/example1.jpg'
-import Example2 from '../assets/example2.jpg'
+import Cluster0 from '../assets/contoh-cluster0.jpg'
+import Cluster1 from '../assets/contoh-cluster1.jpg'
+import Cluster2 from '../assets/contoh-cluster2.jpg'
+import Cluster3 from '../assets/contoh-cluster3.jpg'
 
 export default function Segmentation(){
     return(
@@ -58,30 +59,28 @@ export default function Segmentation(){
                     <div className='flex justify-center items-center w-full h-full bg-gray-100 p-5 rounded-lg'>
                     <ul>
                     <li>
-                        Klaster 0
-                    </li>
-                    <li>
-                        <img src={Image} class="h-[600px] w-[600px]" alt="" />
+                        <img src={Cluster0} class="h-[600px] w-[600px]" alt="" />
                     </li>
                     </ul>
                     </div>
                     <div className='flex justify-center items-center w-full h-full bg-gray-100 p-5 rounded-lg'>
                     <ul>
                     <li>
-                        Klaster 1
-                    </li>
-                    <li>
-                        <img src={Example1} class="h-[600px] w-[600px]" alt="" />
+                        <img src={Cluster1} class="h-[600px] w-[600px]" alt="" />
                     </li>
                     </ul>
                     </div>
                     <div className='flex justify-center items-center w-full h-full bg-gray-100 p-5 rounded-lg'>
                     <ul>
                     <li>
-                        Klaster 2
+                        <img src={Cluster2} class="h-[600px] w-[600px]" alt="" />
                     </li>
+                    </ul>
+                    </div>
+                    <div className='flex justify-center items-center w-full h-full bg-gray-100 p-5 rounded-lg'>
+                    <ul>
                     <li>
-                        <img src={Example2} class="h-[600px] w-[600px]" alt="" />
+                        <img src={Cluster3} class="h-[600px] w-[600px]" alt="" />
                     </li>
                     </ul>
                     </div>
@@ -92,9 +91,9 @@ export default function Segmentation(){
                     <div>
                         <input
                             type='text' 
-                            id='email' 
+                            id='clusters' 
                             required
-                            className='flex-1 p-2 w-[550px] p-1 px-3 rounded place-items-center bg-gray-100 text-gray-600'
+                            className='flex-1 p-2 w-[370px] p-1 px-3 rounded place-items-center bg-gray-100 text-gray-600'
                             placeholder='Choose cluster(s)'>
                         </input>
                     </div>

@@ -4,7 +4,7 @@ import Example1 from '../assets/example1.jpg'
 import Ori from '../assets/contoh-originalimg.jpg'
 import Segmented from '../assets/contoh-segmented.jpg'
 
-const item 
+// const item 
 
 export default function Result (){
     const [isOpen, setOpen] = useState(false);

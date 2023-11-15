@@ -1,4 +1,5 @@
-import React from 'react'
+import {React, useState, useEffect} from 'react'
+import axios from 'axios'
 import Navbar from '../component/navbar'
 import imageCard from '../component/imageCard'
 import Cluster0 from '../assets/contoh-cluster0.jpg'
@@ -7,6 +8,47 @@ import Cluster2 from '../assets/contoh-cluster2.jpg'
 import Cluster3 from '../assets/contoh-cluster3.jpg'
 
 export default function Segmentation(){
+    const [data, setData] = useState('')
+    const [val, setVal] = useState('Upload image')
+
+    const [filename, setFilename] = useState('No file Uploaded')
+
+    useEffect(() => {
+        fetch("http://localhost:3001")
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+            setData(data.message)
+        })
+    }, []);
+    const [file, setFile] = useState(null)
+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+
+        const formData = new FormData()
+        formData.append("file", file)
+
+        try{
+            axios.post('http://localhost:3001/upload', formData).then((res) => {
+                console.log(res.data.message)
+                setVal(res.data.message)
+            });
+            alert('File uploaded')
+        } catch(error) {
+            console.error(error)
+        }
+    }
+
+    const handleFileUpload = (event) => {
+        if (event && event.target && event.target.files && event.target.files.length > 0) {
+            const file = event.target.files[0]
+            setFilename(file.name)
+        } else (
+            console.error('Invalid event or files array is empty.')
+        )
+    }
+
     return(
         <div className='justify-center items-center w-full h-full'>
             <Navbar/>
@@ -14,10 +56,14 @@ export default function Segmentation(){
             <div>
             <div class="fixed top-0 left-0 z-40 px-[50px] w-1/2 h-screen pt-20 transition-transform-translate-x-full border-r  sm:translate-x-0 bg-gray-800 border-gray-700" aria-label="Sidebar">
                 <div class="h-full px-3 pb-4 overflow-y-auto bg-gray-800">
+                    <form onSubmit={handleSubmit}>
                     <ul class="space-y-2 font-medium">
                         <li>
                         <div class="flex justify-center items-center w-70 h-[500px] relative border-2 border-gray-300 border-dashed rounded-lg py-12" id="dropzone">
-                            <input type="file" class="absolute inset-0 w-full h-full opacity-0 z-50" />
+                            <input 
+                               type="file" 
+                               class="absolute inset-0 w-full h-full opacity-0 z-50" 
+                               onChange={(e) => {setFile(e.target.files[0]); handleFileUpload(e)}}/>
                             <div class="text-center">
                                 <svg class="mx-auto h-12 w-12 fill-gray-300" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -47,6 +93,7 @@ export default function Segmentation(){
                             
                         </li>
                     </ul>
+                    </form>
                 </div>
             </div>
             </div>
